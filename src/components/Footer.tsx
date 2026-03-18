@@ -9,7 +9,7 @@ const Footer = () => (
       <p className="font-display text-gold text-lg italic mb-6">Brindamos Soluciones</p>
 
       <nav className="flex flex-wrap justify-center gap-6 mb-8">
-        {["Inicio", "Nosotros", "Servicios", "Opiniones", "Contacto"].map((l) => (
+        {["Inicio", "Nosotros", "Servicios", "Opiniones", "FAQ", "Contacto"].map((l) => (
           <a
             key={l}
             href={`#${l.toLowerCase()}`}
