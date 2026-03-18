@@ -32,15 +32,25 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+    useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   return (
+    <>
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled ? "bg-navy shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="w-full flex items-center justify-between py-3 md:py-4 px-6 md:px-16 lg:px-24">
+      <div className="w-full flex items-center justify-between py-4 md:py-4 px-2 md:px-16 lg:px-24">
         <a href="#inicio" className="flex-shrink-0">
-          <div style={{ width: '100px', height: '45px', overflow: 'hidden' }}>
+          <div style={{ width: '100px', height: '32px', overflow: 'hidden' }}>
             <img
               src={logo}
               alt="MJP"
@@ -48,7 +58,7 @@ const Navbar = () => {
               style={{ 
                 width: '110px', 
                 maxWidth: 'none',
-                marginTop: '-2px',
+                marginTop: '-15px',
                 marginLeft: '-2px'
               }}
             />
@@ -81,29 +91,29 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-primary-foreground p-2"
+          className="md:hidden text-primary-foreground p-2 hover:opacity-70 transition-opacity duration-300"
           aria-label="Menú"
         >
-          <div className="space-y-1.5">
-            <span className={`block w-6 h-0.5 bg-current transition-transform duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-current transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-current transition-transform duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <div className="space-y-1.5 w-6 h-5 flex flex-col justify-center">
+            <span className={`block w-full h-0.5 bg-current transition-all duration-500 ease-out origin-center ${menuOpen ? "rotate-45 translate-y-[10px]" : ""}`} />
+            <span className={`block w-full h-0.5 bg-current transition-all duration-300 ${menuOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"}`} />
+            <span className={`block w-full h-0.5 bg-current transition-all duration-500 ease-out origin-center ${menuOpen ? "-rotate-45 -translate-y-[10px]" : ""}`} />
           </div>
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-navy/95 backdrop-blur-sm pb-6">
-          <ul className="flex flex-col items-center gap-4">
+        <div className="md:hidden bg-navy/98 backdrop-blur-md border-t border-gold/20 animate-in slide-in-from-top-2 duration-300">
+          <ul className="flex flex-col items-center gap-6 py-8 px-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className={`font-body text-sm tracking-wide uppercase ${
+                  className={`font-body text-base tracking-wide uppercase transition-all duration-300 hover:text-gold ${
                     activeSection === link.href.slice(1)
-                      ? "text-gold"
+                      ? "text-gold font-semibold"
                       : "text-primary-foreground/80"
                   }`}
                 >
@@ -115,6 +125,15 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    {/* Overlay backdrop */}
+    {menuOpen && (
+      <div 
+        className="fixed inset-0 bg-black/40 z-40 md:hidden animate-in fade-in duration-300 cursor-pointer"
+        onClick={() => setMenuOpen(false)}
+        aria-label="Cerrar menú"
+      />
+    )}
+    </>
   );
 };
 

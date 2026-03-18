@@ -6,9 +6,9 @@ import heroImg from "@/assets/office-hero.webp";
 const HeroSection = () => {
   const bgRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+    useEffect(() => {
     const handleScroll = () => {
-      if (bgRef.current) {
+      if (bgRef.current && window.innerWidth >= 768) {
         const scrollY = window.scrollY;
         bgRef.current.style.transform = `translateY(${scrollY * 0.5}px)`;
       }
@@ -18,7 +18,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="inicio" className="relative h-screen overflow-hidden">
+    <section id="inicio" className="relative h-screen overflow-hidden w-screen max-w-full">
       {/* Parallax BG */}
       <div
         ref={bgRef}
