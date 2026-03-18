@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo-mjp.png";
-import { Instagram } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-navy py-12 md:py-16">
