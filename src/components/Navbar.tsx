@@ -54,11 +54,18 @@ const Navbar = () => {
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`font-body text-sm tracking-wide uppercase transition-colors duration-300 ${
+                className={`relative font-body text-sm tracking-wide uppercase transition-colors duration-300 pb-1 ${
                   activeSection === link.href.slice(1)
                     ? "text-gold"
                     : "text-primary-foreground/80 hover:text-gold"
                 }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-gold transition-all duration-300 ease-out ${
+                    activeSection === link.href.slice(1) ? "w-full" : "w-0"
+                  }`}
+                />
               >
                 {link.label}
               </a>
