@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Nosotros", href: "#nosotros" },
   { label: "Servicios", href: "#servicios" },
   { label: "Opiniones", href: "#opiniones" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -43,7 +44,7 @@ const Navbar = () => {
             src={logo}
             alt="MJP"
             className="transition-all duration-300 brightness-0 invert object-contain"
-            style={{ height: '45px', maxWidth: '50px', objectPosition: 'top' }}
+            style={{ height: '55px', maxWidth: '60px', objectPosition: 'top' }}
           />
         </a>
 
@@ -53,13 +54,18 @@ const Navbar = () => {
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`font-body text-sm tracking-wide uppercase transition-colors duration-300 ${
+                className={`relative font-body text-sm tracking-wide uppercase transition-colors duration-300 pb-1 ${
                   activeSection === link.href.slice(1)
                     ? "text-gold"
                     : "text-primary-foreground/80 hover:text-gold"
                 }`}
               >
                 {link.label}
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-gold transition-all duration-300 ease-out ${
+                    activeSection === link.href.slice(1) ? "w-full" : "w-0"
+                  }`}
+                />
               </a>
             </li>
           ))}

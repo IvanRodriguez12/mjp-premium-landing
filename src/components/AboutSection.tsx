@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Linkedin, Facebook } from "lucide-react";
 import ownerPhoto from "@/assets/owner-photo.webp";
 
 const stats = [
@@ -44,6 +45,25 @@ const AboutSection = () => (
         <p className="font-body text-steel mt-1 text-lg">
           CEO & Contador Principal — MJP Estudio Contable
         </p>
+
+        <div className="flex gap-3 mt-4">
+          <a
+            href="https://www.linkedin.com/in/maximiliano-paletto-9264a22a2/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:brightness-125 transition"
+          >
+            <Linkedin className="w-4 h-4" />
+          </a>
+          <a
+            href="https://www.facebook.com/EstudioMJP/?locale=es_LA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:brightness-125 transition"
+          >
+            <Facebook className="w-4 h-4" />
+          </a>
+        </div>
         <p className="font-body text-foreground/80 mt-6 leading-relaxed">
           En Estudio MJP nos especializamos en brindar soluciones contables,
           impositivas, laborales y societarias a medida. Con más de 20 años de
