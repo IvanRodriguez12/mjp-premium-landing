@@ -48,7 +48,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-10 ml-auto">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
