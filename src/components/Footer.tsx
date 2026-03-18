@@ -5,7 +5,7 @@ import { Instagram, Facebook } from "lucide-react";
 const Footer = () => (
   <footer className="bg-navy py-12 md:py-16">
     <div className="container mx-auto text-center">
-      <img src={logo} alt="MJP Logo" className="h-16 mx-auto brightness-0 invert mb-4" />
+      <img src={logo} alt="MJP Logo" className="h-20 mx-auto brightness-0 invert mb-4" />
       <p className="font-display text-gold text-lg italic mb-6">Brindamos Soluciones</p>
 
       <nav className="flex flex-wrap justify-center gap-6 mb-8">

@@ -44,7 +44,7 @@ const Navbar = () => {
             src={logo}
             alt="MJP"
             className="transition-all duration-300 brightness-0 invert object-contain"
-            style={{ height: '90px', maxWidth: '100px', objectPosition: 'top' }}
+            style={{ height: '100px', maxWidth: '110px', objectPosition: 'top' }}
           />
         </a>
 

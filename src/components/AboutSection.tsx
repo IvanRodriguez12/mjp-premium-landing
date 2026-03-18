@@ -1,12 +1,55 @@
 import { motion } from "framer-motion";
 import { Linkedin, Facebook, Instagram, MessageCircle } from "lucide-react";
 import ownerPhoto from "@/assets/owner-photo.webp";
+import { useEffect, useRef, useState } from "react";
 
 const stats = [
   { value: "20+", label: "Años" },
   { value: "61", label: "Reseñas ⭐5.0" },
   { value: "100%", label: "Compromiso" },
 ];
+
+const AnimatedStat = ({ value, label }: { value: string; label: string }) => {
+  const [display, setDisplay] = useState("0");
+  const ref = useRef<HTMLDivElement>(null);
+  const animated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animated.current) {
+          animated.current = true;
+          const numeric = parseInt(value.replace(/\D/g, ""));
+          const suffix = value.replace(/[0-9]/g, "");
+          let start = 0;
+          const duration = 1500;
+          const step = 16;
+          const increment = numeric / (duration / step);
+
+          const timer = setInterval(() => {
+            start += increment;
+            if (start >= numeric) {
+              setDisplay(numeric + suffix);
+              clearInterval(timer);
+            } else {
+              setDisplay(Math.floor(start) + suffix);
+            }
+          }, step);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return (
+    <div ref={ref} className="text-center">
+      <p className="font-display text-2xl md:text-3xl text-navy">{display}</p>
+      <p className="font-body text-sm text-steel mt-1">{label}</p>
+    </div>
+  );
+};
 
 const AboutSection = () => (
   <section id="nosotros" className="bg-soft-gray py-20 md:py-28">
@@ -72,8 +115,6 @@ const AboutSection = () => (
             <Instagram className="w-4 h-4" />
           </a>
           <a
-  
-  
             href="https://wa.me/5493624385300"
             target="_blank"
             rel="noopener noreferrer"
@@ -91,10 +132,7 @@ const AboutSection = () => (
 
         <div className="grid grid-cols-3 gap-4 mt-8">
           {stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="font-display text-2xl md:text-3xl text-navy">{s.value}</p>
-              <p className="font-body text-sm text-steel mt-1">{s.label}</p>
-            </div>
+            <AnimatedStat key={s.label} value={s.value} label={s.label} />
           ))}
         </div>
       </motion.div>
