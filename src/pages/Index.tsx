@@ -5,13 +5,6 @@ import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ReviewsSection from "@/components/ReviewsSection";
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import TrustBar from "@/components/TrustBar";
-import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import ReviewsSection from "@/components/ReviewsSection";
 import ContactSection from "@/components/ContactSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
@@ -29,11 +22,6 @@ const Index = () => (
     <ContactSection />
     <FAQSection />
     <Footer />
-    <WhatsAppButton />
-  </>
-);
-
-export default Index;
     <WhatsAppButton />
   </>
 );
