@@ -39,7 +39,7 @@ const HeroSection = () => {
           src={logo}
           alt="MJP Logo"
           className="h-24 md:h-32 mb-8 brightness-0 invert"
-          style={{ width: '120px', height: 'auto' }}
+          style={{ width: '200px', height: 'auto' }}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

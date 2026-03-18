@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, Facebook } from "lucide-react";
+import { Linkedin, Facebook, Instagram, MessageCircle } from "lucide-react";
 import ownerPhoto from "@/assets/owner-photo.webp";
 
 const stats = [
@@ -62,6 +62,24 @@ const AboutSection = () => (
             className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:brightness-125 transition"
           >
             <Facebook className="w-4 h-4" />
+          </a>
+          <a
+            href="https://www.instagram.com/estudiocontablemjp/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:brightness-125 transition"
+          >
+            <Instagram className="w-4 h-4" />
+          </a>
+          <a
+  
+  
+            href="https://wa.me/5493624385300"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:brightness-125 transition"
+          >
+            <MessageCircle className="w-4 h-4" />
           </a>
         </div>
         <p className="font-body text-foreground/80 mt-6 leading-relaxed">

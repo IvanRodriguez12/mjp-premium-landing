@@ -55,7 +55,7 @@ const Footer = () => (
       </Link>
 
       <p className="font-body text-xs text-primary-foreground/40">
-        © 2025 M.J. Paletto & Asociados. Todos los derechos reservados.
+        © 2026 M.J. Paletto & Asociados. Todos los derechos reservados.
       </p>
     </div>
   </footer>

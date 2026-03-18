@@ -30,7 +30,7 @@ const faqs = [
 ];
 
 const FAQSection = () => (
-  <section id="faq" className="bg-background py-20 md:py-28">
+  <section id="faq" className="bg-background py-28 md:py-36">
     <div className="container mx-auto max-w-3xl">
       <motion.div
         className="text-center mb-12"

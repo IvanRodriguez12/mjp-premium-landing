@@ -24,7 +24,7 @@ const ServicesSection = () => (
         {services.map((s, i) => (
           <motion.div
             key={s.title}
-            className="group bg-card rounded-lg p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] hover:bg-navy transition-all duration-400 cursor-default"
+            className="group bg-card rounded-lg p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] hover:bg-navy transition-all duration-300 cursor-default"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
