@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    color-scheme: light only;
     --background: 0 0% 100%;
     --foreground: 0 0% 10%;
     --card: 0 0% 100%;
@@ -50,4 +51,5 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
   overflow-x: hidden;
+  color-scheme: light only;
 }
