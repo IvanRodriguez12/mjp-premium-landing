@@ -37,13 +37,13 @@ const Navbar = () => {
         scrolled ? "bg-navy shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between py-3 md:py-4">
-        <a href="#inicio">
+      <div className="container mx-auto flex items-center justify-between py-3 md:py-4 px-8 md:px-12">
+        <a href="#inicio" className="flex-shrink-0">
           <img
             src={logo}
             alt="MJP"
-            className={`h-8 md:h-10 transition-all duration-300 brightness-0 invert object-contain`}
-            style={{ maxWidth: '60px' }}
+            className="transition-all duration-300 brightness-0 invert object-contain"
+            style={{ height: '45px', maxWidth: '50px', objectPosition: 'top' }}
           />
         </a>
 
