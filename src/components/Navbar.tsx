@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "@/assets/logo-mjp.png";
+import logo from "@/assets/logo-mjp-icon.png";
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -37,13 +37,12 @@ const Navbar = () => {
         scrolled ? "bg-navy shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between py-3 md:py-4 px-8 md:px-12">
+      <div className="w-full flex items-center justify-between py-3 md:py-4 px-6 md:px-16 lg:px-24">
         <a href="#inicio" className="flex-shrink-0">
           <img
             src={logo}
             alt="MJP"
-            className="transition-all duration-300 brightness-0 invert object-contain"
-            style={{ height: '45px', maxWidth: '50px', objectPosition: 'top' }}
+            className="transition-all duration-300 object-contain h-10 md:h-12"
           />
         </a>
 
