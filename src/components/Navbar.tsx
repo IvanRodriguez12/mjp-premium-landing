@@ -66,8 +66,6 @@ const Navbar = () => {
                     activeSection === link.href.slice(1) ? "w-full" : "w-0"
                   }`}
                 />
-              >
-                {link.label}
               </a>
             </li>
           ))}
