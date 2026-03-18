@@ -38,7 +38,7 @@ const Footer = () => (
           <Facebook className="w-4 h-4" />
         </a>
         <a
-          href="https://wa.me/5493624385300"
+          href="https://wa.me/5493624385300?text=Hola%2C%20me%20comunico%20desde%20su%20p%C3%A1gina%20web%20y%20quisiera%20hacer%20una%20consulta."
           target="_blank"
           rel="noopener noreferrer"
           className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center text-primary-foreground/60 hover:text-gold hover:border-gold transition-colors"

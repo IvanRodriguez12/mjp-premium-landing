@@ -11,13 +11,20 @@ const contactInfo = [
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", contact: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = encodeURIComponent(
-      `Hola, soy ${form.name}. ${form.message} (Contacto: ${form.contact})`
-    );
-    window.open(`https://wa.me/5493624385300?text=${msg}`, "_blank");
+    setStatus("loading");
+    try {
+      const res = await fetch("https://formspree.io/f/xnjglbbp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) { setStatus("success"); setForm({ name: "", contact: "", message: "" }); }
+      else setStatus("error");
+    } catch { setStatus("error"); }
   };
 
   return (
@@ -90,16 +97,27 @@ const ContactSection = () => {
                 className="w-full border border-border rounded-md px-4 py-3 font-body text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition resize-none"
               />
             </div>
+            {status === "success" && (
+              <p className="font-body text-sm text-green-600 text-center">
+                ✓ ¡Mensaje enviado! Nos pondremos en contacto a la brevedad.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="font-body text-sm text-red-500 text-center">
+                Hubo un error. Intentá de nuevo o escribinos por WhatsApp.
+              </p>
+            )}
             <button
               type="submit"
-              className="w-full bg-gold text-accent-foreground font-body font-bold py-3.5 rounded-md text-sm uppercase tracking-wider hover:brightness-110 transition"
+              disabled={status === "loading"}
+              className="w-full bg-gold text-accent-foreground font-body font-bold py-3.5 rounded-md text-sm uppercase tracking-wider hover:brightness-110 transition disabled:opacity-60"
             >
-              Enviar Consulta
+              {status === "loading" ? "Enviando..." : "Enviar Consulta"}
             </button>
           </form>
 
           <a
-            href="https://wa.me/5493624385300"
+            href="https://wa.me/5493624385300?text=Hola%2C%20me%20comunico%20desde%20su%20p%C3%A1gina%20web%20y%20quisiera%20hacer%20una%20consulta."
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 flex items-center justify-center gap-2 bg-[#25D366] text-primary-foreground font-body font-bold py-3.5 rounded-md text-sm uppercase tracking-wider hover:brightness-110 transition"

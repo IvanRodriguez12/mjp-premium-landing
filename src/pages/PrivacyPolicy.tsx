@@ -1,83 +1,121 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Shield, Database, Share2, Trash2, Phone, ArrowLeft } from "lucide-react";
 import logo from "@/assets/logo-mjp.png";
+
+const sections = [
+  {
+    icon: Database,
+    title: "Información que recopilamos",
+    content:
+      "A través de nuestro formulario de contacto, recopilamos nombre completo, dirección de correo electrónico y número de teléfono. Estos datos son proporcionados voluntariamente por el usuario al completar el formulario.",
+  },
+  {
+    icon: Shield,
+    title: "Uso de la información",
+    content:
+      "La información recopilada se utiliza únicamente para responder consultas. No utilizamos estos datos con fines comerciales ni publicitarios sin el consentimiento previo del usuario.",
+  },
+  {
+    icon: Share2,
+    title: "Compartición de datos",
+    content:
+      "No compartimos, vendemos ni cedemos datos personales a terceros bajo ninguna circunstancia. La información es tratada de forma confidencial y almacenada de manera segura.",
+  },
+  {
+    icon: Trash2,
+    title: "Eliminación de datos",
+    content:
+      "Podés solicitar la eliminación de tus datos personales en cualquier momento contactándonos. Procesaremos tu solicitud a la brevedad posible.",
+  },
+  {
+    icon: Phone,
+    title: "Contacto",
+    content:
+      "Si tenés preguntas sobre esta política o querés ejercer tus derechos sobre tus datos personales, contactanos por teléfono al 0362 438-5300 o visitanos en Saavedra 519, Resistencia, Chaco.",
+  },
+];
 
 const PrivacyPolicy = () => (
   <div className="min-h-screen bg-background">
-    {/* Header */}
-    <div className="bg-navy py-8">
-      <div className="container mx-auto text-center">
+    {/* Hero Header */}
+    <div className="relative bg-navy py-5 overflow-hidden">
+      <div className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: "repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)",
+          backgroundSize: "20px 20px",
+        }}
+      />
+      <div className="relative container mx-auto text-center">
         <Link to="/">
-          <img src={logo} alt="MJP Logo" className="h-16 mx-auto brightness-0 invert mb-4" />
+          <img
+            src={logo}
+            alt="MJP Logo"
+            className="h-16 mx-auto brightness-0 invert mb-6"
+          />
         </Link>
-        <h1 className="font-display text-3xl md:text-4xl text-primary-foreground">
+        <span className="font-body text-sm uppercase tracking-[0.2em] text-gold font-bold">
+          Legal
+        </span>
+        <h1 className="font-display text-3xl md:text-5xl text-primary-foreground mt-3">
           Política de Privacidad
         </h1>
-        <p className="font-body text-primary-foreground/70 mt-2">
+        <p className="font-body text-primary-foreground/60 mt-3 text-lg">
           Estudio Contable M.J. Paletto &amp; Asociados
         </p>
       </div>
     </div>
 
     {/* Content */}
-    <div className="container mx-auto max-w-3xl py-12 md:py-16 px-6">
-      <div className="space-y-8">
-        <section>
-          <h2 className="font-display text-xl text-navy mb-3">Información que recopilamos</h2>
-          <p className="font-body text-foreground/80 leading-relaxed">
-            A través de nuestro formulario de contacto, recopilamos los siguientes datos personales:
-            nombre completo, dirección de correo electrónico y número de teléfono. Estos datos son
-            proporcionados voluntariamente por el usuario al completar el formulario.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="font-display text-xl text-navy mb-3">Uso de la información</h2>
-          <p className="font-body text-foreground/80 leading-relaxed">
-            La información recopilada se utiliza únicamente para responder a las consultas realizadas
-            por los usuarios. No utilizamos estos datos con fines comerciales, publicitarios ni de
-            marketing sin el consentimiento previo del usuario.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="font-display text-xl text-navy mb-3">Compartición de datos</h2>
-          <p className="font-body text-foreground/80 leading-relaxed">
-            No compartimos, vendemos ni cedemos datos personales a terceros bajo ninguna
-            circunstancia. La información proporcionada es tratada de forma confidencial y se
-            almacena de manera segura.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="font-display text-xl text-navy mb-3">Eliminación de datos</h2>
-          <p className="font-body text-foreground/80 leading-relaxed">
-            Podés solicitar la eliminación de tus datos personales en cualquier momento
-            contactándonos a través de los medios indicados a continuación. Procesaremos tu
-            solicitud en el menor tiempo posible.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="font-display text-xl text-navy mb-3">Contacto</h2>
-          <p className="font-body text-foreground/80 leading-relaxed">
-            Si tenés preguntas sobre esta política o querés ejercer tus derechos sobre tus datos
-            personales, podés contactarnos:
-          </p>
-          <ul className="font-body text-foreground/80 mt-3 space-y-1">
-            <li>📞 Teléfono: 0362 438-5300</li>
-            <li>📍 Dirección: Saavedra 519, Resistencia, Chaco</li>
-          </ul>
-        </section>
+    <div className="container mx-auto max-w-3xl py-10 md:py-14 px-6">
+      <div className="space-y-4">
+        {sections.map((s, i) => (
+          <motion.div
+            key={s.title}
+            className="bg-card rounded-xl p-6 shadow-[0_2px_16px_rgba(0,0,0,0.06)] border border-border"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-10 h-10 rounded-full bg-navy flex items-center justify-center flex-shrink-0">
+                <s.icon className="w-4 h-4 text-gold" />
+              </div>
+              <h2 className="font-display text-xl text-navy">
+                {s.title}
+              </h2>
+            </div>
+            <p className="font-body text-foreground/70 leading-relaxed">
+              {s.content}
+            </p>
+          </motion.div>
+        ))}
       </div>
 
-      <div className="mt-12 text-center">
+      {/* Back button */}
+      <motion.div
+        className="mt-12 text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
         <Link
           to="/"
-          className="font-body text-gold hover:underline font-semibold"
+          className="inline-flex items-center gap-2 font-body text-gold hover:brightness-125 font-semibold transition-all duration-300 group"
         >
-          ← Volver al inicio
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
+          Volver al inicio
         </Link>
-      </div>
+      </motion.div>
+    </div>
+
+    {/* Footer strip */}
+    <div className="bg-navy py-6 text-center">
+      <p className="font-body text-primary-foreground/40 text-sm">
+        © 2026 M.J. Paletto &amp; Asociados. Todos los derechos reservados.
+      </p>
     </div>
   </div>
 );

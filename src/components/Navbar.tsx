@@ -40,12 +40,19 @@ const Navbar = () => {
     >
       <div className="w-full flex items-center justify-between py-3 md:py-4 px-6 md:px-16 lg:px-24">
         <a href="#inicio" className="flex-shrink-0">
-          <img
-            src={logo}
-            alt="MJP"
-            className="transition-all duration-300 brightness-0 invert object-contain"
-            style={{ height: '100px', maxWidth: '110px', objectPosition: 'top' }}
-          />
+          <div style={{ width: '100px', height: '45px', overflow: 'hidden' }}>
+            <img
+              src={logo}
+              alt="MJP"
+              className="transition-all duration-300 brightness-0 invert"
+              style={{ 
+                width: '110px', 
+                maxWidth: 'none',
+                marginTop: '-2px',
+                marginLeft: '-2px'
+              }}
+            />
+          </div>
         </a>
 
         {/* Desktop */}
