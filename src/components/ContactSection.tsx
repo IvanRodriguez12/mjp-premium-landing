@@ -43,7 +43,7 @@ const ContactSection = () => {
             ))}
           </ul>
           <iframe
-            src="https://maps.google.com/maps?q=Saavedra+519,+Resistencia,+Chaco,+Argentina&output=embed"
+            src="https://maps.google.com/maps?q=-27.4505306,-58.9765418&hl=es&z=17&output=embed"
             className="w-full h-48 md:h-56 rounded-lg shadow-lg border-0"
             allowFullScreen
             loading="lazy"
