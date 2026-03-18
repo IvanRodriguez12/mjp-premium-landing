@@ -21,7 +21,7 @@ const Footer = () => (
 
       <div className="flex justify-center gap-4 mb-8">
         <a
-          href="https://instagram.com/estudiocontablemjp"
+          href="https://www.instagram.com/estudiocontablemjp/"
           target="_blank"
           rel="noopener noreferrer"
           className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center text-primary-foreground/60 hover:text-gold hover:border-gold transition-colors"
