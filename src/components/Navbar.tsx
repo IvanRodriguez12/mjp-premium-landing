@@ -41,8 +41,9 @@ const Navbar = () => {
         <a href="#inicio">
           <img
             src={logo}
-            alt="MJP Estudio Contable"
-            className={`h-10 md:h-12 transition-all duration-300 ${scrolled ? "brightness-0 invert" : "brightness-0 invert"}`}
+            alt="MJP"
+            className={`h-8 md:h-10 transition-all duration-300 brightness-0 invert object-contain`}
+            style={{ maxWidth: '60px' }}
           />
         </a>
 

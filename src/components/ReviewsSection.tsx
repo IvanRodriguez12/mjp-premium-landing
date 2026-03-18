@@ -48,6 +48,17 @@ const ReviewsSection = () => (
           </motion.div>
         ))}
       </div>
+
+      <div className="mt-10">
+        <a
+          href="https://www.google.com/maps/search/Estudio+MJP+Resistencia+Chaco"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-gold text-accent-foreground font-body font-bold px-8 py-3.5 rounded-md text-sm uppercase tracking-wider hover:brightness-110 transition"
+        >
+          Ver todas las reseñas en Google
+        </a>
+      </div>
     </div>
   </section>
 );
