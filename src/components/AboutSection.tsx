@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Linkedin, Facebook } from "lucide-react";
 import ownerPhoto from "@/assets/owner-photo.webp";
 
 const stats = [
