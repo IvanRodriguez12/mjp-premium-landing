@@ -37,9 +37,9 @@ const sections = [
 ];
 
 const PrivacyPolicy = () => (
-  <div className="min-h-screen bg-background mt-16 md:mt-0">
+  <div className="min-h-screen bg-background">
     {/* Hero Header */}
-    <div className="relative bg-navy pt-16 pb-8 md:py-5 overflow-hidden">
+    <div className="relative bg-navy py-3 overflow-hidden">
       <div className="absolute inset-0 opacity-5"
         style={{
           backgroundImage: "repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)",
