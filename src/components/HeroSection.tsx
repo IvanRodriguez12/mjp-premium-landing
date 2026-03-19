@@ -34,7 +34,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-navy/55" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 -translate-y-10 md:translate-y-0">
         <motion.img
           src={logo}
           alt="MJP Logo"
