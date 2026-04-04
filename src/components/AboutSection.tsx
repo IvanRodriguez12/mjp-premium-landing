@@ -67,7 +67,7 @@ const AboutSection = () => (
           <img
             src={ownerPhoto}
             alt="Maximiliano Paletto — CEO de MJP Estudio Contable"
-            className="relative rounded-lg w-72 md:w-80 lg:w-96 object-cover aspect-[3/4]"
+            className="relative rounded-lg w-80 md:w-96 lg:w-[420px] object-cover aspect-[3/4] object-top"
           />
         </div>
       </motion.div>
