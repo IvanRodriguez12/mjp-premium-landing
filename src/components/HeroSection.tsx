@@ -38,8 +38,8 @@ const HeroSection = () => {
         <motion.img
           src={logo}
           alt="MJP Logo"
-          className="h-44 md:h-56 mb-8 brightness-0 invert"
-          style={{ width: '350px', height: 'auto' }}
+          className="h-48 md:h-60 mb-6 brightness-0 invert"
+          style={{ width: '370px', height: 'auto' }}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
