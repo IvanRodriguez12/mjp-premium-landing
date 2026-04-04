@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin, Facebook, Instagram, MessageCircle } from "lucide-react";
-import ownerPhoto from "@/assets/owner-photo.webp";
+import ownerPhoto from "@/assets/owner-photo.jpg";
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
