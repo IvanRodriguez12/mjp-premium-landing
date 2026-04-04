@@ -74,7 +74,7 @@ const ContactSection = () => {
                 required
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full border border-border rounded-md px-4 py-3 font-body text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition"
+                className="w-full border border-gray-300 rounded-md px-4 py-3 font-body text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition"
               />
             </div>
             <div>
@@ -84,7 +84,7 @@ const ContactSection = () => {
                 required
                 value={form.contact}
                 onChange={(e) => setForm({ ...form, contact: e.target.value })}
-                className="w-full border border-border rounded-md px-4 py-3 font-body text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition"
+                className="w-full border border-gray-300 rounded-md px-4 py-3 font-body text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition"
               />
             </div>
             <div>
@@ -94,7 +94,7 @@ const ContactSection = () => {
                 required
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full border border-border rounded-md px-4 py-3 font-body text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition resize-none"
+                className="w-full border border-gray-300 rounded-md px-4 py-3 font-body text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition resize-none"
               />
             </div>
             {status === "success" && (
