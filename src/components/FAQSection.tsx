@@ -24,7 +24,7 @@ const faqs = [
     a: "Sí, atendemos tanto en nuestra oficina en Saavedra 519, Resistencia, como de forma remota para clientes de todo el país.",
   },
   {
-    q: "¿Qué pasa si tengo deudas con AFIP?",
+    q: "¿Qué pasa si tengo deudas con ARCA?",
     a: "Te asesoramos para regularizar tu situación de la forma más conveniente, evaluando planes de pago y opciones disponibles.",
   },
 ];
