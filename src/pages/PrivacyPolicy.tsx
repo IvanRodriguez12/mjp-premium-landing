@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Shield, Database, Share2, Trash2, Phone, ArrowLeft } from "lucide-react";
-import logo from "@/assets/logo-mjp.png";
+import logo from "@/assets/logo-mjp.webp";
 
 const sections = [
   {

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/Logo_MJP_RGB sin fondo.png";
+import logo from "@/assets/Logo_MJP_RGB sin fondo.webp";
 import { Instagram, Facebook } from "lucide-react";
 
 const Footer = () => (

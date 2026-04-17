@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin, Facebook, Instagram, MessageCircle } from "lucide-react";
-import ownerPhoto from "@/assets/owner-photo.jpg";
+import ownerPhoto from "@/assets/owner-photo.webp";
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
@@ -66,7 +66,10 @@ const AboutSection = () => (
           <div className="absolute -inset-3 border-2 border-gold rounded-lg" />
           <img
             src={ownerPhoto}
-            alt="Maximiliano Paletto — CEO de MJP Estudio Contable"
+            alt="Maximiliano Paletto — Contador Público en Resistencia Chaco"
+            width={420}
+            height={560}
+            loading="lazy"
             className="relative rounded-lg w-80 md:w-96 lg:w-[420px] object-cover aspect-[3/4] object-top"
           />
         </div>
