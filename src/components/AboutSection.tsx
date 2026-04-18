@@ -97,12 +97,14 @@ const AboutSection = () => (
             href="https://www.linkedin.com/in/maximiliano-paletto-9264a22a2/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn de Estudio MJP"
             className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:brightness-125 transition"
           >
             <Linkedin className="w-4 h-4" />
           </a>
           <a
             href="https://www.facebook.com/EstudioMJP/?locale=es_LA"
+            aria-label="Facebook de Estudio MJP"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:brightness-125 transition"
@@ -111,6 +113,7 @@ const AboutSection = () => (
           </a>
           <a
             href="https://www.instagram.com/estudiocontablemjp/"
+            aria-label="Instagram de Estudio MJP"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:brightness-125 transition"
@@ -119,6 +122,7 @@ const AboutSection = () => (
           </a>
           <a
             href="https://wa.me/5493624385300?text=Hola%2C%20me%20comunico%20desde%20su%20p%C3%A1gina%20web%20y%20quisiera%20hacer%20una%20consulta."
+            aria-label="WhatsApp de Estudio MJP"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:brightness-125 transition"
