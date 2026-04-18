@@ -52,12 +52,12 @@ const Footer = () => (
 
       <Link
         to="/politica-de-privacidad"
-        className="font-body text-xs text-primary-foreground/50 hover:text-gold transition-colors block mb-4"
+        className="font-body text-xs text-primary-foreground/70 hover:text-gold transition-colors block mb-4"
       >
         Política de Privacidad
       </Link>
 
-      <p className="font-body text-xs text-primary-foreground/40">
+      <p className="font-body text-xs text-primary-foreground/60">
         © 2026 M.J. Paletto & Asociados. Todos los derechos reservados.
       </p>
     </div>

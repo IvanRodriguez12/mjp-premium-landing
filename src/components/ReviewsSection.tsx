@@ -18,7 +18,7 @@ const Stars = () => (
 const ReviewsSection = () => (
   <section id="opiniones" className="bg-soft-gray py-20 md:py-28">
     <div className="container mx-auto text-center">
-      <span className="font-body text-sm uppercase tracking-[0.2em] text-gold font-bold">
+      <span className="font-body text-sm uppercase tracking-[0.2em] text-amber-700 font-bold">
         Lo Que Dicen Nuestros Clientes
       </span>
       <h2 className="font-display text-3xl md:text-4xl text-foreground mt-3 mb-12">
@@ -52,6 +52,7 @@ const ReviewsSection = () => (
       <div className="mt-10">
         <a
           href="https://www.google.com/maps/search/Estudio+MJP+Resistencia+Chaco"
+          aria-label="Ver todas las reseñas de Estudio MJP en Google"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-gold text-accent-foreground font-body font-bold px-8 py-3.5 rounded-md text-sm uppercase tracking-wider hover:brightness-110 transition"

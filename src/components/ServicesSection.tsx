@@ -13,7 +13,7 @@ const services = [
 const ServicesSection = () => (
   <section id="servicios" className="bg-background py-20 md:py-28">
     <div className="container mx-auto text-center">
-      <span className="font-body text-sm uppercase tracking-[0.2em] text-gold font-bold">
+      <span className="font-body text-sm uppercase tracking-[0.2em] text-amber-700 font-bold">
         Lo Que Hacemos
       </span>
       <h2 className="font-display text-3xl md:text-4xl text-foreground mt-3 mb-12">
