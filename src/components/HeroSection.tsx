@@ -37,7 +37,10 @@ const HeroSection = () => {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 -translate-y-10 md:translate-y-0">
         <motion.img
           src={logo}
-          alt="MJP Logo"
+          alt="MJP Estudio Contable Resistencia Chaco"
+          fetchPriority="high"
+          width={370}
+          height={120}
           className="h-48 md:h-60 mb-0 brightness-0 invert"
           style={{ width: '370px', height: 'auto' }}
           initial={{ opacity: 0, y: -20 }}
