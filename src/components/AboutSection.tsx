@@ -131,10 +131,12 @@ const AboutSection = () => (
           </a>
         </div>
         <p className="font-body text-foreground/80 mt-6 leading-relaxed">
-          En Estudio MJP nos especializamos en brindar soluciones contables,
-          impositivas, laborales y societarias a medida. Con más de 20 años de
-          experiencia, ayudamos a pequeñas y medianas empresas a crecer de forma
-          inteligente, protegiendo su patrimonio y optimizando sus recursos.
+          En Estudio MJP & Asociados, somos tu estudio contable en Resistencia, Chaco. 
+          Nos especializamos en soluciones contables, impositivas, laborales y societarias 
+          a medida para PyMEs y profesionales independientes. Con más de 20 años de 
+          experiencia asesorando empresas en Resistencia y toda la provincia del Chaco, 
+          ayudamos a nuestros clientes a optimizar su carga impositiva, gestionar su 
+          personal y crecer con seguridad.
         </p>
 
         <div className="grid grid-cols-3 gap-4 mt-8">
