@@ -1,28 +1,34 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
-import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import ReviewsSection from "@/components/ReviewsSection";
-import ContactSection from "@/components/ContactSection";
-import FAQSection from "@/components/FAQSection";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+
+const AboutSection = lazy(() => import("@/components/AboutSection"));
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
+const ReviewsSection = lazy(() => import("@/components/ReviewsSection"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+const FAQSection = lazy(() => import("@/components/FAQSection"));
+const Footer = lazy(() => import("@/components/Footer"));
+const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
+
+const Fallback = () => <div style={{ minHeight: 200 }} aria-hidden="true" />;
 
 const Index = () => (
   <>
     <Navbar />
     <HeroSection />
     <TrustBar />
-    <AboutSection />
-    <ServicesSection />
-    <WhyChooseUs />
-    <ReviewsSection />
-    <FAQSection />
-    <ContactSection />
-    <Footer />
-    <WhatsAppButton />
+    <Suspense fallback={<Fallback />}>
+      <AboutSection />
+      <ServicesSection />
+      <WhyChooseUs />
+      <ReviewsSection />
+      <FAQSection />
+      <ContactSection />
+      <Footer />
+      <WhatsAppButton />
+    </Suspense>
   </>
 );
 

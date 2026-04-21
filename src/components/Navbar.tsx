@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import logo from "@/assets/logo-mjp.webp";
+import logoSm from "@/assets/logo-mjp-sm.webp";
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -16,20 +17,59 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("inicio");
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 60);
+    const sectionIds = navLinks.map((l) => l.href.slice(1));
+    let offsets: { id: string; top: number }[] = [];
+    const recomputeOffsets = () => {
+      offsets = sectionIds
+        .map((id) => {
+          const el = document.getElementById(id);
+          return el ? { id, top: el.getBoundingClientRect().top + window.scrollY } : null;
+        })
+        .filter((x): x is { id: string; top: number } => !!x);
+    };
 
-      const sections = navLinks.map((l) => l.href.slice(1));
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && el.getBoundingClientRect().top <= 200) {
-          setActiveSection(sections[i]);
+    let ticking = false;
+    let currentScrolled = false;
+    let currentActive = "inicio";
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      const isScrolled = y > 60;
+      if (isScrolled !== currentScrolled) {
+        currentScrolled = isScrolled;
+        setScrolled(isScrolled);
+      }
+      // Use cached offsets — pure read of scrollY, no per-element layout reads.
+      for (let i = offsets.length - 1; i >= 0; i--) {
+        if (offsets[i].top - y <= 200) {
+          if (offsets[i].id !== currentActive) {
+            currentActive = offsets[i].id;
+            setActiveSection(offsets[i].id);
+          }
           break;
         }
       }
     };
+    const onScroll = () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    };
+
+    // Defer first measure until after paint to keep first paint cheap.
+    const initId = window.requestIdleCallback
+      ? window.requestIdleCallback(recomputeOffsets)
+      : window.setTimeout(recomputeOffsets, 200);
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", recomputeOffsets, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", recomputeOffsets);
+      if (window.cancelIdleCallback && typeof initId === "number") {
+        // best-effort cleanup
+        try { window.cancelIdleCallback(initId as number); } catch {}
+      } else {
+        clearTimeout(initId as number);
+      }
+    };
   }, []);
 
     useEffect(() => {
@@ -52,11 +92,17 @@ const Navbar = () => {
         <a href="#inicio" className="flex-shrink-0">
           <div style={{ width: '100px', height: '32px', overflow: 'hidden' }}>
             <img
-              src={logo}
+              src={logoSm}
+              srcSet={`${logoSm} 220w, ${logo} 243w`}
+              sizes="110px"
               alt="MJP"
+              width={110}
+              height={79}
+              decoding="async"
               className="transition-all duration-300 brightness-0 invert"
-              style={{ 
-                width: '110px', 
+              style={{
+                width: '110px',
+                height: 'auto',
                 maxWidth: 'none',
                 marginTop: '-15px',
                 marginLeft: '-2px'

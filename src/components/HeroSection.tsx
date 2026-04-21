@@ -1,20 +1,37 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import logo from "@/assets/Logo_MJP_RGB sin fondo.webp";
+import logoSm from "@/assets/Logo_MJP_RGB-sm.webp";
 import heroImg from "@/assets/office-hero.webp";
 
 const HeroSection = () => {
   const bgRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
+  useEffect(() => {
+    let ticking = false;
+    let lastY = 0;
+    let isDesktop = window.innerWidth >= 768;
+    const onResize = () => { isDesktop = window.innerWidth >= 768; };
+    const apply = () => {
+      ticking = false;
+      if (bgRef.current && isDesktop) {
+        // Write only — no DOM reads here to avoid forced reflow.
+        bgRef.current.style.transform = `translate3d(0, ${lastY * 0.5}px, 0)`;
+      }
+    };
     const handleScroll = () => {
-      if (bgRef.current && window.innerWidth >= 768) {
-        const scrollY = window.scrollY;
-        bgRef.current.style.transform = `translateY(${scrollY * 0.5}px)`;
+      lastY = window.scrollY;
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(apply);
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", onResize, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
 
   return (
@@ -36,11 +53,13 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 -translate-y-10 md:translate-y-0">
         <motion.img
-          src={logo}
+          src={logoSm}
+          srcSet={`${logoSm} 400w, ${logo} 800w`}
+          sizes="(min-width: 768px) 370px, 280px"
           alt="MJP Estudio Contable Resistencia Chaco"
           fetchPriority="high"
           width={370}
-          height={120}
+          height={278}
           className="h-48 md:h-60 mb-0 brightness-0 invert"
           style={{ width: '370px', height: 'auto' }}
           initial={{ opacity: 0, y: -20 }}

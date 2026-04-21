@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Instagram } from "lucide-react";
 
@@ -12,6 +12,23 @@ const contactInfo = [
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", contact: "", message: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [showMap, setShowMap] = useState(false);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (showMap || !mapRef.current) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShowMap(true);
+          obs.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    obs.observe(mapRef.current);
+    return () => obs.disconnect();
+  }, [showMap]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,13 +66,27 @@ const ContactSection = () => {
               </li>
             ))}
           </ul>
-          <iframe
-            src="https://maps.google.com/maps?q=-27.4505306,-58.9765418&hl=es&z=17&output=embed"
-            className="w-full h-48 md:h-56 rounded-lg shadow-lg border-0"
-            allowFullScreen
-            loading="lazy"
-            title="Ubicación MJP"
-          />
+          <div ref={mapRef} className="w-full h-48 md:h-56 rounded-lg shadow-lg overflow-hidden bg-navy/40 relative">
+            {showMap ? (
+              <iframe
+                src="https://maps.google.com/maps?q=-27.4505306,-58.9765418&hl=es&z=17&output=embed"
+                className="w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                title="Ubicación MJP"
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setShowMap(true)}
+                aria-label="Cargar mapa de ubicación"
+                className="w-full h-full flex flex-col items-center justify-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors"
+              >
+                <MapPin className="w-8 h-8 text-gold" />
+                <span className="font-body text-sm">Ver mapa</span>
+              </button>
+            )}
+          </div>
         </motion.div>
 
         {/* Right - Form */}

@@ -1,11 +1,22 @@
 import { Link } from "react-router-dom";
 import logo from "@/assets/Logo_MJP_RGB sin fondo.webp";
+import logoSm from "@/assets/Logo_MJP_RGB-sm.webp";
 import { Instagram, Facebook } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-navy py-12 md:py-16">
     <div className="container mx-auto text-center">
-      <img src={logo} alt="MJP Logo" className="h-20 mx-auto brightness-0 invert mb-4" />
+      <img
+        src={logoSm}
+        srcSet={`${logoSm} 400w, ${logo} 800w`}
+        sizes="160px"
+        alt="MJP Logo"
+        width={160}
+        height={120}
+        loading="lazy"
+        decoding="async"
+        className="h-20 w-auto mx-auto brightness-0 invert mb-4"
+      />
       <p className="font-display text-gold text-lg italic mb-6">Brindamos Soluciones</p>
 
       <nav className="flex flex-wrap justify-center gap-6 mb-8">
